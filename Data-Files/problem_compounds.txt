@@ -1,0 +1,8 @@
+A00113255 - CC1(C)C[C@H](C2CC[C@]3(C)C(=CC[C@@H]4[C@@]5(C)CC[C@H](O)C(C)(C)[C@@H]5CC[C@@]34C)[C@@H]2C1)C(O)=O
+A04497688 - C[C@]12CC[C@H]3[C@@H](CC[C@@]45O[C@@H]4C(=O)C(C[C@]35C)C#N)[C@@H]1CC[C@@H]2O
+A04919211 - C[C@H]1O[C@@H](OC2C[C@@H]3O[C@@](O)(C[C@H](O)[C@H]3C(O)=O)C[C@@H](O)CC3OC3\C=C\C(=O)O[C@H](C)C\C=C\C=C\C=C\C=C\2)[C@@H](O)[C@@H](N)[C@@H]1O
+A28746609 - CC(=O)O[C@@H]1C2=C(C)[C@H](C[C@@](O)([C@@H](OC(=O)c3ccccc3)C3[C@@]4(CO[C@@H]4C[C@H](O)[C@@]3(C)C1=O)OC(C)=O)C2(C)C)OC(=O)[C@H](O)[C@@H](NC(=O)c1ccccc1)c1ccccc1
+A53292131 - C[C@@H]1C[C@H](C2CC[C@]3(C)C(=CC[C@@H]4[C@@]5(C)CC[C@H](O)C(C)(C)[C@@H]5CC[C@@]34C)[C@@H]2[C@H]1C)C(O)=O
+A82249027 - C[C@H]1OC(O[C@@H]2C[C@@H]3O[C@@](O)(C[C@H](O)[C@H]3C(O)=O)C[C@@H](O)C[C@@H](O)[C@H](O)CC[C@@H](O)C[C@@H](O)CC(=O)O[C@@H](C)[C@H](C)[C@H](O)[C@@H](C)\C=C\C=C\C=C\C=C\C=C\C=C\C=C\2)[C@@H](O)[C@@H](N)[C@@H]1O
+K08188887 - CC(C)(O)[C@H]1CC[C@](C)(O1)[C@H]1[C@@H](O)C[C@@]2(C)[C@@H]3C[C@H](O[C@@H]4O[C@H](CO)[C@@H](O)[C@H](O)[C@H]4O)[C@@H]4[C@]5(C[C@@]35CC[C@]12C)CC[C@H](O[C@@H]1OC[C@@H](O)[C@H](O)[C@H]1O)C4(C)C
+K10799896 - CCC(=O)O[C@@]1([C@@H](C)C[C@H]2[C@@H]3CCC4=CC(=O)C=C[C@]4(C)[C@@]3(F)[C@@H](O)C[C@]12C)C(=O)CCl
