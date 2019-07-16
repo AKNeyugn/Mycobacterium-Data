@@ -1,0 +1,16 @@
+A-M:
+
+Total # rows: 4636478
+Unique compound rows with non n/a compound_stem: 47272
+Unique strain rows: 98
+
+N-Z:
+
+Total # rows: 2696727
+Unique compound rows with non n/a compound_stem: 47272
+Unique strain rows: 57
+
+
+PROBLEM: 
+
+- Total unique strain rows = 155 =/= 153 strains indicated in paper notes.
