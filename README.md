@@ -43,6 +43,7 @@ Read both chemogenomic data files (A-M and N-Z) and create 2 seperate chemogenom
 - *CGM* folder containing 3 .csv files: 2 incomplete CGM files (A-M and N-Z) and 1 full CGM file that combines the previous 2
 
 **Note:**
+
 *A-M:*
 
 - Total # rows: 4636478
