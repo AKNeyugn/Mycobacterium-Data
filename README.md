@@ -31,6 +31,9 @@ Expected compounds with failed 3D structure conversion due to missing SMILES:
 
 The files for these compounds are manually moved to seperate *nan-SMILES* folder
 
+**Note:**
+.pdb file containing all compounds info is not uploaded to repository due to its large size
+
 # CGMProcess.py
 
 Read both chemogenomic data files (A-M and N-Z) and create 2 seperate chemogenomic matrix (CGM) outputs as .csv files, then combine the halves into one full CGM .csv file.
@@ -67,3 +70,5 @@ CGM output is a compound vs gene matrix, where x-axis = gene and y-axis = compou
 - Total # columns (strains): 155
 - Unique compound rows with non n/a compound_stem: 47272
 
+**Note:**
+Input files, as well as output files, are not uploaded to repository due to their large size
