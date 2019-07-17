@@ -28,6 +28,7 @@ Expected compounds with failed 3D structure conversion due to missing SMILES:
 - U32963902
 - U84341231
 - nan
+
 The files for these compounds are manually moved to seperate *nan-SMILES* folder
 
 # CGMProcess.py
