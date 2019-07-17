@@ -103,7 +103,7 @@ def build_single_pdb():
     cwd = os.getcwd()
     input_folder = os.path.join(cwd, pdb_output_folder)
     input_subfolder = os.path.join(input_folder, output_subfolder)
-    input_files = os.listdir(input_subfolder)
+    input_files = sorted(os.listdir(input_subfolder))
     output_txt = ""
     num_mol = 1
     sys.stdout.write("Processing .pdb files...\n")
