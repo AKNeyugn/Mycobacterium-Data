@@ -36,16 +36,23 @@ The files for these compounds are manually moved to seperate *nan-SMILES* folder
 
 # CGMProcess.py
 
-Read both chemogenomic data files (A-M and N-Z) and create 2 seperate chemogenomic matrix (CGM) outputs as .csv files, then combine the halves into one full CGM .csv file.
+Read both chemogenomic data files (A-M and N-Z) and create CGM .csv file.
+
+If run with *filter_run* argument equal to "true", cell values in CGM will be binary (1 if input values pass z_score AND p_value cutoffs, 0 otherwise). In this case, output file will be named "Full_CGM_*z_score_cutoff*_*p_value_cutoff*.csv";
+
+Otherwise, will create 2 CGM files: one where cell values are z_scores and another where cell values are p_values. In this case, z_score matrix will be name "Full_CGM_Z_score.csv" and p_value matrix will be named "Full_CGM_P_value.csv"
 
 **Module requirements:**
 
 - pandas (pip install pandas)
 
-**How to run:** *python CGMProcess.py*
+**How to run:** *python CGMProcess.py filter_run z_score_cutoff p_value_cutoff*
+- filter_run: "true" if want CGM to have binary cell values based on z_score and p_value cutoffs
+- z_score_cutoff: cutoff for z_score (required if filter_run == "true")
+- p_value_cutoff: cutoff for p_value (required if filter_run == "true")
 
 **Outputs:**
-- *CGM* folder containing 3 .csv files: 2 incomplete CGM files (A-M and N-Z) and 1 full CGM file that combines the previous 2
+- *CGM* folder containing .csv files
 
 **Note:**
 CGM output is a compound vs gene matrix, where x-axis = gene and y-axis = compound
