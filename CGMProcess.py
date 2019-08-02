@@ -20,8 +20,7 @@ input_folder = "Data-Files"
 output_folder = "CGM"
 first_half = "2019-05-15_split-lfc-p-values-strains-A-M.csv"
 second_half = "2019-05-15_split-lfc-p-values-strains-N-Z.csv"
-output_first_half = "CGM-strains-A-M.csv"
-output_second_half = "CGM-strains-N-Z.csv"
+output_full = "Full_CGM"
 
 def main():
     start = datetime.datetime.now()
@@ -30,15 +29,25 @@ def main():
 
     input_first = os.path.join(input_folder, first_half)
     input_second = os.path.join(input_folder, second_half)
-    output_first = os.path.join(output_folder, output_first_half)
-    output_second = os.path.join(output_folder, output_second_half)
 
-    # Create CGM halves
-    #process_half(input_first, output_first)
-    #process_half(input_second, output_second)
+    filter_run = sys.argv[1]
 
-    # Combine CGM halves
-    combine_halves(output_first, output_second)
+    if filter_run.upper() == "FALSE":
+        # Create Z-score matrix
+        output_name = output_full + "_Z_score.csv"
+        # Create DataFrame for CGM halves
+        df_first = process_half(input_first, "z_score")
+        df_second = process_half(input_second, "z_score")
+        # Combine CGM halves
+        combine_halves(df_first, df_second, output_name)
+
+        # Create Z-score matrix
+        output_name = output_full + "_P_value.csv"        
+        # Create DataFrame for CGM halves
+        df_first = process_half(input_first, "p_value")
+        df_second = process_half(input_second, "p_value")
+        # Combine CGM halves
+        combine_halves(df_first, df_second, output_name)
 
     end = datetime.datetime.now()
     time_taken = end - start
@@ -47,13 +56,13 @@ def main():
     sys.stdout.write("Script finished! \n")
     return
 
-def process_half(input_name, output_name):
+def process_half(input_name, cell_value):
     '''
     Read chemogenomic data file and create CGM output as .csv file
 
     Args:
         input_name (string): name of chemogenomic data file
-        output_name (string): name of CGM .csv file
+        cell_value (string): desired column for cell values
     '''
     sys.stdout.write("Processing " + input_name + "...\n")
     df = pd.read_csv(input_name)
@@ -79,8 +88,8 @@ def process_half(input_name, output_name):
             cmp_name = compound + "-" + str(conct)
             if cmp_name not in cgm_cmps:
                 cgm_cmps.append(cmp_name)
-            # Get z_score
-            score = row["z_score"]
+            # Get cell values
+            score = row[cell_value]
             cgm_data[strain].append(score)
             sys.stdout.write("Processed %d mutants \r" % (num_cmp))
             sys.stdout.flush()
@@ -90,28 +99,25 @@ def process_half(input_name, output_name):
     indices = dict(zip(list(range(len(cgm_cmps))),cgm_cmps))
     data_df.rename(indices, axis="index", inplace=True)
 
-    data_df.to_csv(output_name)
     sys.stdout.write("Done!\n")
     sys.stdout.write("\n")
-    return
+    return data_df
 
-def combine_halves(input_one, input_two):
+def combine_halves(df_one, df_two, output):
     '''
     Combine the two CGM .csv file halves into one
 
     Args:
-        input_one (string): name of first CGM half
-        input_two (string): name of second CGM half
+        df_one (string): DataFrame of first CGM half
+        df_two (string): DataFrame of second CGM half
+        output (string): name of combined CGM
     '''
-    sys.stdout.write("Reading CGM halves... \n")
-    df_one = pd.read_csv(input_one)
-    df_two = pd.read_csv(input_two)
     list_cmps = df_one[df_one.columns[0]]
     df_one.drop(["compound"], axis=1, inplace=True)
     df_two.drop(["compound"], axis=1, inplace=True)
 
     sys.stdout.write("Combining halves... \n")
-    output_name = os.path.join(output_folder, "Full_CGM.csv")
+    output_name = os.path.join(output_folder, output)
     output_df = pd.concat([df_one, df_two], axis=1, sort=False)
     indices = dict(zip(list(range(len(list_cmps))),list_cmps))
     output_df.rename(indices, axis="index", inplace=True)
