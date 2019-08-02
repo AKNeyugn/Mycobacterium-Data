@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
-""" Read both chemogenomic data files (A-M and N-Z) 
-    and create 2 seperate chemogenomic matrix (CGM) outputs as .csv files,
-    then combine the halves into one full CGM .csv file
+""" Read both chemogenomic data files (A-M and N-Z) and create CGM .csv file:
+    If run with *filter_run* argument equal to "true", cell values in CGM will be binary 
+    (1 if input values pass z_score AND p_value cutoffs, 0 otherwise); 
+    Otherwise, will create 2 CGM files: one where cell values are z_scores and another where cell values are p_values. 
 
     Author: Roy Nguyen
-    Last edited: July 16, 2019
+    Last edited: Aug 2, 2019
 """
 
 
@@ -70,11 +71,14 @@ def main():
 
 def process_half(input_name, cell_value):
     '''
-    Read chemogenomic data file and create CGM output as .csv file
+    Read chemogenomic data file and return DataFrame with desired cell values
 
     Args:
         input_name (string): name of chemogenomic data file
         cell_value (string): desired column for cell values
+
+    Return:
+        (DataFrame): DataFrame with desired cell values
     '''
     sys.stdout.write("Processing " + input_name + "...\n")
     df = pd.read_csv(input_name)
