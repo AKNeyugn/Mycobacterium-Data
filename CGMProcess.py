@@ -152,7 +152,7 @@ def process_half_filter(input_name, z_score_cutoff, p_value_cutoff):
             # Get cell values
             z_score = row[column_names[0]]
             p_value = row[column_names[1]]
-            if float(z_score) <= z_score_cutoff and float(p_value) <= p_value_cutoff:
+            if float(z_score) <= float(z_score_cutoff) and float(p_value) <= float(p_value_cutoff):
                 score = "1"
             else:
                 score = "0"
