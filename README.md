@@ -37,9 +37,7 @@ The files for these compounds are manually moved to seperate *nan-SMILES* folder
 # CGMProcess.py
 
 Read both chemogenomic data files (A-M and N-Z) and create CGM .csv file.
-
 If run with *filter_run* argument equal to "true", cell values in CGM will be binary (1 if input values pass z_score AND p_value cutoffs, 0 otherwise). In this case, output file will be named "Full_CGM_*z_score_cutoff*_*p_value_cutoff*.csv";
-
 Otherwise, will create 2 CGM files: one where cell values are z_scores and another where cell values are p_values. In this case, z_score matrix will be name "Full_CGM_Z_score.csv" and p_value matrix will be named "Full_CGM_P_value.csv"
 
 **Module requirements:**
